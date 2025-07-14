@@ -21,12 +21,179 @@
   --button-text: #ffffff;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+/* =============== Base light theme variables for Tic Tac Toe ================ */
+:root {
+  --ttt-primary: #1976D2;
+  --ttt-accent: #ff7043;
+  --ttt-bg: #ffffff;
+  --ttt-shadow: rgba(25, 118, 210, 0.03);
+  --ttt-status-draw: #888888;
+  --ttt-cell-hover: #e3f0fc;
+  --ttt-cell: #f8fafb;
+}
+
+.ttt-app-bg {
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100vw;
+  background: var(--ttt-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttt-center-panel {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 36px var(--ttt-shadow), 0 1.5px 0 #ececec;
+  min-width: 320px;
+  min-height: 480px;
+  width: 96vw;
+  max-width: 380px;
+  padding: 36px 22px 22px 22px;
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ttt-title {
+  font-size: 2.1rem;
+  color: var(--ttt-primary);
+  font-weight: 700;
+  margin-bottom: 0.2em;
+  letter-spacing: 0.04em;
+}
+
+.ttt-scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 1.6em;
+  background: #f7fbff;
+  border-radius: 14px;
+  box-shadow: 0 .5px 1px #e5e5e5;
+  font-size: 1.08em;
+  color: #555;
+  margin-bottom: 13px;
+  margin-top: 6px;
+  padding: 8px 12px;
+}
+.score-px {
+  color: var(--ttt-primary);
+}
+.score-po {
+  color: var(--ttt-accent);
+}
+.score-draw {
+  color: #999;
+}
+
+.ttt-status-bar {
+  margin: 12px 0 24px 0;
+  font-size: 1.03em;
+  font-weight: 600;
+  min-height: 28px;
+  letter-spacing: 0.04em;
+}
+.ttt-status-primary {
+  color: var(--ttt-primary);
+}
+.ttt-status-accent {
+  color: var(--ttt-accent);
+}
+.ttt-status-draw {
+  color: var(--ttt-status-draw);
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 1.2px 6px #e3ebf3;
+}
+
+.ttt-board-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.ttt-cell {
+  width: 60px;
+  height: 60px;
+  border: 0.5px solid #cfe0f8;
+  background: var(--ttt-cell);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ttt-primary);
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  transition: background 0.15s, color 0.21s, border 0.13s;
+  border-radius: 8px;
+  box-shadow: 0px 0.5px 0 #e1ecf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.ttt-cell:disabled {
+  cursor: not-allowed;
+  background: #f2f4fa;
+  color: #b1b1b1;
+  opacity: 1;
+}
+.ttt-cell:not(:disabled):hover, .ttt-cell:not(:disabled):focus {
+  background: var(--ttt-cell-hover);
+  color: var(--ttt-accent);
+  border-color: var(--ttt-accent);
+}
+
+.ttt-btn {
+  margin-top: 8px;
+  background: var(--ttt-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.03em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 11px 30px;
+  box-shadow: 0 2px 8px #eaf0fa;
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s;
+}
+.ttt-btn:active {
+  background: var(--ttt-accent);
+  color: #fff;
+}
+.ttt-btn:focus, .ttt-btn:hover {
+  background: var(--ttt-accent);
+  outline: 2px solid var(--ttt-primary);
+}
+
+.ttt-footer {
+  margin-top: 19px;
+  font-size: 0.97em;
+  color: #a6b7cc;
+  opacity: 0.88;
+  letter-spacing: 0.03em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .ttt-center-panel {
+    min-width: unset;
+    max-width: 97vw;
+    padding: 12vw 2vw 9vw 2vw;
+  }
+  .ttt-board .ttt-cell {
+    width: 16vw;
+    height: 16vw;
+    font-size: 6vw;
+  }
 }
 
 .App-logo {
